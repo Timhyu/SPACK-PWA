@@ -1,5 +1,8 @@
 import Vue, { CreateElement } from 'vue'
 import { Component } from 'vue-property-decorator'
+import { ConfigProvider as AntdConfigProvider } from 'ant-design-vue'
+
+import { ThemeConf } from '@config/theme.conf'
 
 @Component({
   name: 'app'
@@ -8,11 +11,9 @@ export default class App extends Vue {
   protected render (h: CreateElement) {
     return (
       <div id="app">
-        <div id="nav">
-          <router-link to="/">Home</router-link> |
-          <router-link to="/about">About</router-link>
-        </div>
-        <router-view />
+        <AntdConfigProvider prefixCls={ThemeConf.prefix}>
+          <router-view />
+        </AntdConfigProvider>
       </div>
     )
   }
