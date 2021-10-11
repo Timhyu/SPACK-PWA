@@ -1,3 +1,8 @@
+const path = require('path')
+const os = require('os')
+const webpack = require('webpack')
+const SystemConfig = require('./config/system.conf')
+
 const isProd = ['production', 'test'].includes(process.env.NODE_ENV)
 
 module.exports = {
@@ -8,7 +13,20 @@ module.exports = {
   productionSourceMap: false,
   css: {
     extract: isProd,
-    sourceMap: !isProd
+    sourceMap: !isProd,
+    loaderOptions: {
+      less: {
+        lessOptions: {
+          modifyVars: SystemConfig.antd.variables,
+          javascriptEnabled: true
+        }
+      }
+    }
+  },
+  pluginOptions: {
+    webpackBundleAnalyzer: {
+      openAnalyzer: process.env.VUE_APP_BUNDLE_ANALYZER === 'true'
+    }
   },
   devServer: {
     open: process.platform === 'darwin',
@@ -35,29 +53,40 @@ module.exports = {
 			}
     }
   },
-  pwa: {
-    name: 'Magento Vue Pwa',
-    themeColor: '#4DBA87',
-    msTitleColor: '#000000',
-    appleMobileWebAppCapable: 'yes',
-    appleMobileWebAppStatusBarStyle: 'black',
-    // configure the workbox plugin
-    workboxPluginMode: 'InjectManifest',
-    workboxOptions: {
-      // swSrc is required in InjectManifest mode.
-      swSrc: `${process.env.BASE_URL}service-worker.js`,
-      // ...other Workbox options...
-    }
-  },
+  // pwa: {
+  //   name: 'Magento Vue Pwa',
+  //   themeColor: '#4DBA87',
+  //   msTitleColor: '#000000',
+  //   appleMobileWebAppCapable: 'yes',
+  //   appleMobileWebAppStatusBarStyle: 'black',
+  //   // configure the workbox plugin
+  //   workboxPluginMode: 'InjectManifest',
+  //   workboxOptions: {
+  //     // swSrc is required in InjectManifest mode.
+  //     swSrc: `${process.env.BASE_URL}service-worker.js`,
+  //     // ...other Workbox options...
+  //   }
+  // },
   chainWebpack: (config) => {
-    // Fixed HMR
-    // config.resolve.symlinks(true)
+    config.resolve.alias
+      .set('@config', path.resolve(__dirname, './config'))
+      .set('@ant-design/icons/lib/dist$', path.resolve(
+        __dirname,
+        './src/components/Icons/icons.js'
+      ))
+
+    config
+      .plugin('fork-ts-checker')
+      .tap(args => {
+          // get OS mem size
+          const totalMem = Math.floor(os.totalmem() / 1024 / 1024) 
+          const allowUseMem = totalMem > 2500 ? 2048 : 1000
+          args[0].memoryLimit = allowUseMem
+          return args
+      })
   },
   configureWebpack: (config) => {
-    if (isProd) {
-      // Do something for prod
-    } else {
-      // Do something for dev
-    }
+    /* strips out moment locales */
+    config.plugins.push(new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/))
   }
 }
