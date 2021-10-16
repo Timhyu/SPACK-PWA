@@ -1,9 +1,10 @@
 const path = require('path')
 const os = require('os')
 const webpack = require('webpack')
-const SystemConfig = require('./config/system.conf')
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 
-const isProd = ['production', 'test'].includes(process.env.NODE_ENV)
+const SystemConfig = require('./config/system.conf')
+const IS_PROD = ['production', 'test'].includes(process.env.NODE_ENV)
 
 module.exports = {
   publicPath: '/',
@@ -12,8 +13,8 @@ module.exports = {
   lintOnSave: false,
   productionSourceMap: false,
   css: {
-    extract: isProd,
-    sourceMap: !isProd,
+    extract: IS_PROD,
+    sourceMap: !IS_PROD,
     loaderOptions: {
       less: {
         lessOptions: {
@@ -86,6 +87,42 @@ module.exports = {
       })
   },
   configureWebpack: (config) => {
+    if (IS_PROD) {
+      config.plugins.push(
+        new LodashModuleReplacementPlugin({
+          shorthands: true,
+          cloning: true,
+          collections: true,
+          paths: true
+        })
+      )
+  
+      config.optimization = {
+        splitChunks: {
+          cacheGroups: {
+            common: {
+              name: 'chunk-common',
+              chunks: 'initial',
+              minChunks: 2,
+              maxInitialRequests: 5,
+              minSize: 0,
+              priority: 1,
+              reuseExistingChunk: true,
+              enforce: true
+            },
+            vendors: {
+              name: 'chunk-vendors',
+              test: /[\\/]node_modules[\\/]/,
+              chunks: 'initial',
+              priority: 2,
+              reuseExistingChunk: true,
+              enforce: true
+            }
+          }
+        }
+      }
+    }
+
     /* strips out moment locales */
     config.plugins.push(new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/))
   }
