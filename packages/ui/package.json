@@ -1,0 +1,11 @@
+{
+  "name": "@pwa/ui",
+  "author": "Caesar",
+  "copyright": "@2021 Caesar Corp. All Rights Reserved",
+  "version": "0.0.1",
+  "main": "index.ts",
+  "dependencies": {
+    "ant-design-vue": "^1.7.8"
+  },
+  "sideEffects": false
+}

@@ -1,14 +1,18 @@
 {
-  "name": "silk-vue-pwa",
+  "name": "magento-vue-pwa",
   "version": "0.1.0",
+  "author": "Caesar",
+  "copyright": "@2021 Caesar Corp. All Rights Reserved",
   "private": true,
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "dependencies": {
-    "ant-design-vue": "^1.7.8",
     "apollo-cache-inmemory": "^1.6.6",
     "apollo-client": "^2.6.10",
     "apollo-link": "^1.2.14",
@@ -20,6 +24,7 @@
     "graphql-tag": "^2.12.5",
     "less": "^4.1.2",
     "less-loader": "^7.3.0",
+    "lodash-webpack-plugin": "^0.11.6",
     "register-service-worker": "^1.7.1",
     "unfetch": "^4.2.0",
     "vue": "^2.6.11",

@@ -3,6 +3,7 @@ import { Component } from 'vue-property-decorator'
 import { ConfigProvider as AntdConfigProvider } from 'ant-design-vue'
 
 import { ThemeConf } from '@config/theme.conf'
+import AppShell from '@/components/AppShell'
 
 @Component({
   name: 'app'
@@ -12,7 +13,9 @@ export default class App extends Vue {
     return (
       <div id="app">
         <AntdConfigProvider prefixCls={ThemeConf.prefix}>
-          <router-view />
+          <AppShell>
+            <router-view />
+          </AppShell>
         </AntdConfigProvider>
       </div>
     )
