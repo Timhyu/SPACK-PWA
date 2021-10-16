@@ -9,7 +9,8 @@ import AppShell from '@/components/AppShell'
   name: 'app'
 })
 export default class App extends Vue {
-  protected render (h: CreateElement) {
+  protected render(h: CreateElement) {
+    console.log(111)
     return (
       <div id="app">
         <AntdConfigProvider prefixCls={ThemeConf.prefix}>
