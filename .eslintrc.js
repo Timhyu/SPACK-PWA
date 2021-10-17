@@ -16,24 +16,29 @@ module.exports = {
     },
     ecmaVersion: 2020
   },
+  settings: {
+    'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx']
+    },
+    'import/resolver': {
+      typescript: {
+        directory: './tsconfig.json'
+      },
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx']
+      }
+    }
+  },
   rules: {
     semi: ['error', 'never'],
     camelcase: 0,
-    'lines-between-class-members': [
-      'error',
-      'always',
-      { exceptAfterSingleLine: true }
-    ],
     'no-unused-vars': 'off',
     'no-console': ['error', { allow: ['warn', 'error'] }],
     'no-param-reassign': 0,
     'no-underscore-dangle': 0,
     'no-plusplus': 0,
     'no-useless-escape': 0,
-    'consistent-return': 0,
-    'global-require': 0,
-    'space-before-function-paren': 'off',
-    'object-shorthand': ['error', 'always', { avoidQuotes: true }],
     'prettier/prettier': [
       'error',
       {
@@ -46,8 +51,9 @@ module.exports = {
         }
       }
     ],
-    '@typescript-eslint/rule-name': 'error',
+    '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-unused-vars': 'off'
+    '@typescript-eslint/explicit-module-boundary-types': 'off'
   }
 }
