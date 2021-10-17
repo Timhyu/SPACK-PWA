@@ -40,18 +40,18 @@ module.exports = {
     },
     proxy: {
       '/graphql': {
-				target: `${process.env.VUE_APP_GRAPHQL_URL}/graphql`,
-				changeOrigin: true,
-				secure: false
-			},
+        target: `${process.env.VUE_APP_GRAPHQL_URL}/graphql`,
+        changeOrigin: true,
+        secure: false
+      },
       '/api/': {
-				proxyHeaders: false,
-				target: process.env.VUE_APP_GRAPHQL_URL,
-				pathRewrite: {
-					'^/api/': ''
-				},
-				secure: false
-			}
+        proxyHeaders: false,
+        target: process.env.VUE_APP_GRAPHQL_URL,
+        pathRewrite: {
+          '^/api/': ''
+        },
+        secure: false
+      }
     }
   },
   // pwa: {
@@ -71,20 +71,18 @@ module.exports = {
   chainWebpack: (config) => {
     config.resolve.alias
       .set('@config', path.resolve(__dirname, './config'))
-      .set('@ant-design/icons/lib/dist$', path.resolve(
-        __dirname,
-        './src/components/Icons/icons.js'
-      ))
+      .set(
+        '@ant-design/icons/lib/dist$',
+        path.resolve(__dirname, './src/components/Icons/icons.js')
+      )
 
-    config
-      .plugin('fork-ts-checker')
-      .tap(args => {
-          // get OS mem size
-          const totalMem = Math.floor(os.totalmem() / 1024 / 1024) 
-          const allowUseMem = totalMem > 2500 ? 2048 : 1000
-          args[0].memoryLimit = allowUseMem
-          return args
-      })
+    config.plugin('fork-ts-checker').tap((args) => {
+      // get OS mem size
+      const totalMem = Math.floor(os.totalmem() / 1024 / 1024)
+      const allowUseMem = totalMem > 2500 ? 2048 : 1000
+      args[0].memoryLimit = allowUseMem
+      return args
+    })
   },
   configureWebpack: (config) => {
     if (IS_PROD) {
@@ -96,7 +94,7 @@ module.exports = {
           paths: true
         })
       )
-  
+
       config.optimization = {
         splitChunks: {
           cacheGroups: {
