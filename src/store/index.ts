@@ -1,17 +1,7 @@
 import Vue from 'vue'
-import Vuex, {
-  ActionTree,
-  GetterTree,
-  ModuleTree,
-  MutationTree
-} from 'vuex'
+import Vuex, { ActionTree, GetterTree, ModuleTree, MutationTree } from 'vuex'
 
-import {
-  appModule,
-  cartModule,
-  checkoutModule,
-  userModule
-} from '@/modules'
+import { appModule, cartModule, checkoutModule, userModule } from '@/modules'
 
 Vue.use(Vuex)
 
