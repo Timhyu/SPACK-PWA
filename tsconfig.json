@@ -19,6 +19,9 @@
     "paths": {
       "@/*": [
         "src/*"
+      ],
+      "@config/*": [
+        "config/*"
       ]
     },
     "lib": [
@@ -29,6 +32,9 @@
     ]
   },
   "include": [
+    "config/*.ts",
+    "packages/*.ts",
+    "packages/*.tsx",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
