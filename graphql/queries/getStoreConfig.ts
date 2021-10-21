@@ -22,10 +22,10 @@ export const GET_STORE_CONFIG = gql`
       store_name
       secure_base_url
       secure_base_media_url
-      currency {
-        code: default_display_currency_code
-        symbol: default_display_currency_symbol
-      }
+    }
+    currency {
+      code: default_display_currency_code
+      symbol: default_display_currency_symbol
     }
   }
 `

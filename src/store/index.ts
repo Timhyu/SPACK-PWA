@@ -1,7 +1,19 @@
 import Vue from 'vue'
-import Vuex, { ActionTree, GetterTree, ModuleTree, MutationTree } from 'vuex'
+import Vuex, {
+  createLogger,
+  ActionTree,
+  GetterTree,
+  ModuleTree,
+  MutationTree
+} from 'vuex'
 
 import { appModule, cartModule, checkoutModule, userModule } from '@/modules'
+import plugins from './plugins'
+
+const isDev: boolean = process.env.NODE_ENV !== 'production'
+const vuexPlugins: any[] = [plugins]
+
+if (isDev) vuexPlugins.push(createLogger())
 
 Vue.use(Vuex)
 
@@ -21,10 +33,14 @@ const mutations: MutationTree<RootState> = {}
 
 const actions: ActionTree<any, RootState> = {}
 
-export default new Vuex.Store({
+const store: any = new Vuex.Store({
   state,
   getters,
   mutations,
   actions,
-  modules
+  modules,
+  plugins: vuexPlugins,
+  strict: process.env.NODE_ENV !== 'production'
 })
+
+export default store

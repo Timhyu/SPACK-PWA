@@ -1,4 +1,7 @@
-import { Module, ActionTree, MutationTree } from 'vuex'
+import { MutationTree } from 'vuex'
+import { ApolloActionTree } from './interface'
+
+import { GET_STORE_CONFIG } from '@graphql/queries/getStoreConfig'
 
 const state: any = () => ({
   currency: null,
@@ -14,9 +17,23 @@ const mutations: MutationTree<any> = {
   }
 }
 
-const actions: ActionTree<any, any> = {}
+const actions: ApolloActionTree<any, any> = {
+  async getStoreConfig({ commit, apollo }) {
+    try {
+      const { data } = await apollo.query({
+        query: GET_STORE_CONFIG
+      })
 
-const appModule: Module<any, any> = {
+      if (data) {
+        commit('saveConfig', data)
+      }
+    } catch (error) {
+      return null
+    }
+  }
+}
+
+const appModule: any = {
   namespaced: true,
   state,
   mutations,
