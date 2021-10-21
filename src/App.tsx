@@ -13,7 +13,7 @@ import AppShell from '@/components/AppShell'
 export default class App extends Vue {
   protected render(h: CreateElement) {
     return (
-      <div id="app" style={{ minHeight: '3000px' }}>
+      <div id="app">
         <ThemeProvider theme={ThemeConf.theme}>
           <AntdConfigProvider prefixCls={ThemeConf.prefix}>
             <AppShell>
