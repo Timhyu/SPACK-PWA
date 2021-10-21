@@ -1,4 +1,4 @@
-export const ThemeConf = {
+export const ThemeConf: any = {
   prefix: 'silk',
   theme: {
     namespace: 'silk',

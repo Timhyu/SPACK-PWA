@@ -26,7 +26,8 @@ declare module 'vue-styled-components' {
   }
   export type Styled<T = HTMLElements> = StyledComponentElements & {
     <T>(Component: T, props?: Record<string, Vue.PropOptions['type']>): (
-      str: TemplateStringsArray
+      str: TemplateStringsArray,
+      ...rest
     ) => StyledComponent
   }
 

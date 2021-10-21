@@ -4,13 +4,15 @@ import { namespace } from 'vuex-class'
 
 import VHeader from '@/components/Header'
 import VFooter from '@/components/Footer'
+import GlobalStyled from '@/components/GlobalStyled'
 
-const appModule: any = namespace('app/')
+const appModule: any = namespace('app')
 
 @Component({
   name: 'appShell'
 })
 export default class AppShell extends Vue {
+  @appModule.State('storeConfig') storeConfig: any
   @appModule.Action('getStoreConfig') getStoreConfig: Function | any
 
   // Query Store Config
@@ -21,8 +23,9 @@ export default class AppShell extends Vue {
   protected render(h: CreateElement) {
     return (
       <div class="layout">
+        <GlobalStyled />
         <VHeader />
-        {this.$slots.default}
+        <main>{this.storeConfig && this.$slots.default}</main>
         <VFooter />
       </div>
     )
