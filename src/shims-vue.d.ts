@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import { Store } from 'vuex'
 import VueRouter, { Route } from 'vue-router'
+import { AxiosStatic } from 'axios'
 
 declare module '*.vue' {
   import Vue from 'vue'
@@ -19,8 +20,10 @@ declare module 'vue/types/vue' {
   }
 
   interface VueConstructor {
-    $store: Store<any>
+    $axios: AxiosStatic
+    $http: AxiosStatic
     $router: VueRouter
     $route: Route
+    $store: Store<any>
   }
 }
