@@ -18,6 +18,7 @@
     "apollo-link": "^1.2.14",
     "apollo-link-error": "^1.1.13",
     "apollo-link-http": "^1.5.17",
+    "axios": "^0.23.0",
     "babel-plugin-import": "^1.13.3",
     "core-js": "^3.6.5",
     "graphql": "^15.6.1",
