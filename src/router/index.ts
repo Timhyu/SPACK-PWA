@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import VHomePage from '../page/home'
+import VHomePage from '../pages/home'
 
 Vue.use(VueRouter)
 
@@ -16,12 +16,13 @@ const routes: Array<RouteConfig> = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "login" */ '../page/login')
+    component: () => import(/* webpackChunkName: "login" */ '../pages/login')
   },
   {
     path: '*',
     name: 'Url Resolver',
-    component: () => import(/* webpackChunkName: "login" */ '../page/_urlResolver')
+    component: () =>
+      import(/* webpackChunkName: "_urlResolver" */ '../pages/_urlResolver')
   }
 ]
 

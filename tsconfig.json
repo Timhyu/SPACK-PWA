@@ -22,6 +22,9 @@
       ],
       "@config/*": [
         "config/*"
+      ],
+      "@graphql/*": [
+        "graphql/*"
       ]
     },
     "lib": [
@@ -33,6 +36,7 @@
   },
   "include": [
     "config/*.ts",
+    "graphql/**/*.ts",
     "packages/*.ts",
     "packages/*.tsx",
     "src/**/*.ts",

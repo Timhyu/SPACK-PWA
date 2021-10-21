@@ -71,6 +71,7 @@ module.exports = {
   chainWebpack: (config) => {
     config.resolve.alias
       .set('@config', path.resolve(__dirname, './config'))
+      .set('@graphql', path.resolve(__dirname, './graphql'))
       .set(
         '@ant-design/icons/lib/dist$',
         path.resolve(__dirname, './src/components/Icons/icons.js')

@@ -5,9 +5,7 @@ import { Component } from 'vue-property-decorator'
   name: 'v-urlResolver'
 })
 export default class VUrlResolver extends Vue {
-  protected render (h: CreateElement) {
-    return (
-      <div>UrlResolver Page</div>
-    )
+  protected render(h: CreateElement) {
+    return <div>UrlResolver Page</div>
   }
 }

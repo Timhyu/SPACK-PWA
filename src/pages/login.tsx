@@ -5,9 +5,7 @@ import { Component } from 'vue-property-decorator'
   name: 'v-login'
 })
 export default class VLogin extends Vue {
-  protected render (h: CreateElement) {
-    return (
-      <div>Login Page</div>
-    )
+  protected render(h: CreateElement) {
+    return <div>Login Page</div>
   }
 }
