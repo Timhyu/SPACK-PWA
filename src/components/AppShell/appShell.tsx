@@ -4,6 +4,7 @@ import { namespace } from 'vuex-class'
 
 import VHeader from '@/components/Header'
 import VFooter from '@/components/Footer'
+import VFragment from '@/components/Fragment'
 import GlobalStyled from '@/components/GlobalStyled'
 
 const appModule: any = namespace('app')
@@ -24,9 +25,13 @@ export default class AppShell extends Vue {
     return (
       <div class="layout">
         <GlobalStyled />
-        <VHeader />
-        <main>{this.storeConfig && this.$slots.default}</main>
-        <VFooter />
+        {this.storeConfig && (
+          <VFragment>
+            <VHeader />
+            <main>{this.$slots.default}</main>
+            <VFooter />
+          </VFragment>
+        )}
       </div>
     )
   }

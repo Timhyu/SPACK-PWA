@@ -1,4 +1,4 @@
-import Vue, { CreateElement, PropType, RenderContext, VNode } from 'vue'
+import { CreateElement, PropType, RenderContext, VNode } from 'vue'
 import { Carousel as AntdCarousel } from 'ant-design-vue'
 
 interface CarouselProps {
@@ -9,7 +9,7 @@ interface CarouselProps {
   vertical?: boolean
 }
 
-const Carousel = Vue.extend({
+const Carousel: any = {
   name: 'v-carousel',
   functional: true,
   props: {
@@ -35,14 +35,21 @@ const Carousel = Vue.extend({
     }
   },
   render(h: CreateElement, context: RenderContext<CarouselProps>): VNode {
-    const { props = {}, listeners = {} } = context
+    const { data = {}, props = {}, listeners = {} } = context
+    const attrs = data?.attrs ?? {}
+    const style = data?.style ?? {}
 
     return (
-      <AntdCarousel {...{ props }} {...{ on: listeners }}>
+      <AntdCarousel
+        {...{ props }}
+        {...{ attrs }}
+        style={style}
+        {...{ on: listeners }}
+      >
         {context.children}
       </AntdCarousel>
     )
   }
-})
+}
 
 export default Carousel

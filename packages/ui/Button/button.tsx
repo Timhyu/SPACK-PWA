@@ -12,10 +12,17 @@ const Button = Vue.extend({
   //   },
   // },
   render(h: CreateElement, context: RenderContext<any>): VNode {
-    const { props = {}, listeners = {} } = context
-    
+    const { data = {}, props = {}, listeners = {} } = context
+    const attrs = data?.attrs ?? {}
+    const style = data?.style ?? {}
+
     return (
-      <AntdButton {...{ props }} {...{ on: listeners }}>
+      <AntdButton
+        {...{ props }}
+        {...{ attrs }}
+        style={style}
+        {...{ on: listeners }}
+      >
         {context.children}
       </AntdButton>
     )

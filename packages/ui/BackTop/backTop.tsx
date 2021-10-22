@@ -20,10 +20,17 @@ const BackTop = Vue.extend({
     }
   },
   render(h: CreateElement, context: RenderContext<BackTopProps>): VNode {
-    const { props = {}, listeners = {} } = context
+    const { data = {}, props = {}, listeners = {} } = context
+    const attrs = data?.attrs ?? {}
+    const style = data?.style ?? {}
 
     return (
-      <AntdBackTop {...{ props }} {...{ on: listeners }}>
+      <AntdBackTop
+        {...{ props }}
+        {...{ attrs }}
+        style={style}
+        {...{ on: listeners }}
+      >
         {context.children}
       </AntdBackTop>
     )
