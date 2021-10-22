@@ -41,16 +41,10 @@ const ResponsiveImg = Vue.extend({
     }
   },
   render(h: CreateElement, context: RenderContext<ResponsiveImgProps>): VNode {
-    const { props, listeners = {} } = context
-    const {
-      alt,
-      aspectRatio,
-      backgroundColor,
-      fullWidth,
-      fullHeight,
-      src,
-      ...rest
-    } = props
+    const { data = {}, props } = context
+    const attrs = data?.attrs ?? {}
+    const { alt, aspectRatio, backgroundColor, fullWidth, fullHeight, src } =
+      props
 
     return (
       <ImgContainer
@@ -63,7 +57,7 @@ const ResponsiveImg = Vue.extend({
           alt={alt}
           fullWidth={fullWidth}
           fullHeight={fullHeight}
-          {...rest}
+          {...{ attrs }}
         />
       </ImgContainer>
     )

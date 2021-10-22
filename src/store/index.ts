@@ -8,6 +8,7 @@ import Vuex, {
 } from 'vuex'
 
 import { appModule, cartModule, checkoutModule, userModule } from '@/modules'
+import VuexConnector from './connector'
 import plugins from './plugins'
 
 const isDev: boolean = process.env.NODE_ENV !== 'production'
@@ -42,5 +43,7 @@ const store: any = new Vuex.Store({
   plugins: vuexPlugins,
   strict: process.env.NODE_ENV !== 'production'
 })
+
+export const connector = new VuexConnector(store)
 
 export default store

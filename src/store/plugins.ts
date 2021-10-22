@@ -68,6 +68,5 @@ export default (store: any) => {
     const _this: any = this
     orig.call(_this, path, rawModule)
     patchModule(_this, [].concat(path), _this._modules.get([path]))
-    _this.dispatch(`${path}/INIT`)
   }
 }

@@ -5,9 +5,15 @@ const Container = Vue.extend({
   name: 'v-container',
   functional: true,
   render(h: CreateElement, context: RenderContext<any>): VNode {
-    const { props = {} } = context
+    const { data = {}, listeners = {} } = context
+    const attrs = data?.attrs ?? {}
+    const style = data?.style ?? {}
 
-    return <StyledContainer {...{ props }}>{context.children}</StyledContainer>
+    return (
+      <StyledContainer {...{ attrs }} style={style}>
+        {context.children}
+      </StyledContainer>
+    )
   }
 })
 

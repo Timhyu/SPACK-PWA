@@ -1,10 +1,10 @@
 import { VueConstructor } from 'vue'
-import { Button, Carousel, Input } from 'ant-design-vue'
+import { Button, Carousel, Icon, Input, Select } from 'ant-design-vue'
 
 import { pwaNotification } from './notification'
 import { pwaMessage } from './message'
 
-const components: any[] = [Button, Carousel, Input]
+const components: any[] = [Button, Carousel, Icon, Input, Select]
 
 const antd = {
   install(Vue: VueConstructor) {

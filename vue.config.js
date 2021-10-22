@@ -18,6 +18,7 @@ module.exports = {
     loaderOptions: {
       less: {
         lessOptions: {
+          math: 'always',
           modifyVars: SystemConfig.antd.variables,
           javascriptEnabled: true
         }

@@ -35,10 +35,6 @@
     ]
   },
   "include": [
-    "config/*.ts",
-    "graphql/**/*.ts",
-    "packages/*.ts",
-    "packages/*.tsx",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
