@@ -1,17 +1,16 @@
 import Vue, { CreateElement, VNode } from 'vue'
-import { Component } from 'vue-property-decorator'
+import { Component, Prop } from 'vue-property-decorator'
 
 @Component({
-  name: 'v-fragment',
-  abstract: true,
-  props: {
-    name: {
-      type: String,
-      default: () => Math.floor(Date.now() * Math.random()).toString(16)
-    }
-  }
+  name: 'v-fragment'
 })
 export default class VFragment extends Vue {
+  @Prop({
+    type: String,
+    default: () => Math.floor(Date.now() * Math.random()).toString(16)
+  })
+  readonly name: string | any
+
   private mounted() {
     const container: any = this.$el
     const parent: any = container.parentNode
