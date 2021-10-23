@@ -2,9 +2,10 @@ import Vue, { CreateElement } from 'vue'
 import { Component } from 'vue-property-decorator'
 import { namespace } from 'vuex-class'
 
+import { BackTop, Fragment } from '@pwa/ui'
+
 import VHeader from '@/components/Header'
 import VFooter from '@/components/Footer'
-import VFragment from '@/components/Fragment'
 import GlobalStyled from '@/components/GlobalStyled'
 import { StyledLayout } from './styled'
 
@@ -27,11 +28,12 @@ export default class AppShell extends Vue {
       <div class="layout">
         <GlobalStyled />
         {this.storeConfig && (
-          <VFragment>
+          <Fragment>
             <VHeader />
             <StyledLayout>{this.$slots.default}</StyledLayout>
             <VFooter />
-          </VFragment>
+            <BackTop />
+          </Fragment>
         )}
       </div>
     )

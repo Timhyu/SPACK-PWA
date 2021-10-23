@@ -34,6 +34,11 @@
       "scripthost"
     ]
   },
+  "references": [
+    {
+      "path": "./packages/ui"
+    }
+  ],
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
