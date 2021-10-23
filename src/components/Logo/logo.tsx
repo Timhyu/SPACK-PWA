@@ -13,8 +13,8 @@ const Logo: any = {
     const logo: any = storeConfig
       ? {
           src: `${storeConfig.secure_base_media_url}logo/${storeConfig.logo_src}`,
-          width: storeConfig.logo_width || 65,
-          height: storeConfig.logo_height || 65,
+          width: storeConfig.logo_width || 54,
+          height: storeConfig.logo_height || 54,
           alt: storeConfig.logo_alt
         }
       : null
