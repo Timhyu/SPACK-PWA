@@ -7,9 +7,9 @@ export const ThemeConf: any = {
       blue: '#1890ff',
       white: '#ffffff',
       black: '#000000',
-      border: '#c6c6c6',
+      border: '#e0e0e0',
       link: '#006bb4',
-      gray: 'rgba(0, 0, 0, 0.75)',
+      gray: '#f2f2f2',
       error: '#d22122',
       background: '#F0F2F5',
       gary: '#f2f2f2'

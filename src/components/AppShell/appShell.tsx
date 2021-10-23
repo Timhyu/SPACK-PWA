@@ -6,6 +6,7 @@ import VHeader from '@/components/Header'
 import VFooter from '@/components/Footer'
 import VFragment from '@/components/Fragment'
 import GlobalStyled from '@/components/GlobalStyled'
+import { StyledLayout } from './styled'
 
 const appModule: any = namespace('app')
 
@@ -28,7 +29,7 @@ export default class AppShell extends Vue {
         {this.storeConfig && (
           <VFragment>
             <VHeader />
-            <main>{this.$slots.default}</main>
+            <StyledLayout>{this.$slots.default}</StyledLayout>
             <VFooter />
           </VFragment>
         )}

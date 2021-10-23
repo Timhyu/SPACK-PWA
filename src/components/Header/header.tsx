@@ -1,10 +1,17 @@
 import Vue, { CreateElement } from 'vue'
 import { Component } from 'vue-property-decorator'
+import {
+  HeartIcon,
+  SearchIcon,
+  ShoppingCartIcon,
+  UserIcon
+} from 'vue-feather-icons'
 
-import { Container } from '@pwa/ui'
+import { Container, Icon } from '@pwa/ui'
 
 import Logo from '@/components/Logo'
-import { StyledHeader, StyledGrid } from './styled'
+import Menu from './Menu'
+import { StyledHeader, StyledGrid, StyledAction } from './styled'
 
 @Component({
   name: 'v-header'
@@ -15,9 +22,14 @@ export default class VHeader extends Vue {
       <StyledHeader>
         <Container>
           <StyledGrid>
-            <p>Menu</p>
+            <Menu />
             <Logo />
-            <p>Tool</p>
+            <StyledAction>
+              <Icon src={SearchIcon} />
+              <Icon src={HeartIcon} />
+              <Icon src={ShoppingCartIcon} />
+              <Icon src={UserIcon} />
+            </StyledAction>
           </StyledGrid>
         </Container>
       </StyledHeader>
