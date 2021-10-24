@@ -1,4 +1,4 @@
-import Vue, { CreateElement, PropType, RenderContext, VNode } from 'vue'
+import { CreateElement, PropType, RenderContext, VNode } from 'vue'
 import { BackTop as AntdBackTop } from 'ant-design-vue'
 
 interface BackTopProps {
@@ -6,7 +6,7 @@ interface BackTopProps {
   visibilityHeight?: number
 }
 
-const BackTop = Vue.extend({
+const BackTop: any = {
   name: 'v-backTop',
   functional: true,
   props: {
@@ -16,18 +16,25 @@ const BackTop = Vue.extend({
     },
     visibilityHeight: {
       type: Number as PropType<BackTopProps['visibilityHeight']>,
-      default: 400
+      default: 200
     }
   },
   render(h: CreateElement, context: RenderContext<BackTopProps>): VNode {
-    const { props = {}, listeners = {} } = context
+    const { data = {}, props = {}, listeners = {} } = context
+    const attrs = data?.attrs ?? {}
+    const style = data?.style ?? {}
 
     return (
-      <AntdBackTop {...{ props }} {...{ on: listeners }}>
+      <AntdBackTop
+        {...{ props }}
+        {...{ attrs }}
+        style={style}
+        {...{ on: listeners }}
+      >
         {context.children}
       </AntdBackTop>
     )
   }
-})
+}
 
 export default BackTop

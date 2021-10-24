@@ -20,10 +20,17 @@ const Affix = Vue.extend({
     }
   },
   render(h: CreateElement, context: RenderContext<AffixProps>): VNode {
-    const { props = {}, listeners = {} } = context
+    const { data = {}, props = {}, listeners = {} } = context
+    const attrs = data?.attrs ?? {}
+    const style = data?.style ?? {}
 
     return (
-      <AntdAffix {...{ props }} {...{ on: listeners }}>
+      <AntdAffix
+        {...{ props }}
+        {...{ attrs }}
+        style={style}
+        {...{ on: listeners }}
+      >
         {context.children}
       </AntdAffix>
     )

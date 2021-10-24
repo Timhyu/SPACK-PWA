@@ -17,14 +17,11 @@
       "jest"
     ],
     "paths": {
+      "~/*": [
+        "./*"
+      ],
       "@/*": [
-        "src/*"
-      ],
-      "@config/*": [
-        "config/*"
-      ],
-      "@graphql/*": [
-        "graphql/*"
+        "./*"
       ]
     },
     "lib": [
@@ -34,16 +31,15 @@
       "scripthost"
     ]
   },
+  "references": [
+    {
+      "path": "./packages/ui"
+    }
+  ],
   "include": [
-    "config/*.ts",
-    "graphql/**/*.ts",
-    "packages/*.ts",
-    "packages/*.tsx",
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "/**/*.ts",
+    "/**/*.tsx",
+    "types/*.d.ts"
   ],
   "exclude": [
     "node_modules"

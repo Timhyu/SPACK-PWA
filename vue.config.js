@@ -18,6 +18,7 @@ module.exports = {
     loaderOptions: {
       less: {
         lessOptions: {
+          math: 'always',
           modifyVars: SystemConfig.antd.variables,
           javascriptEnabled: true
         }
@@ -69,12 +70,15 @@ module.exports = {
   //   }
   // },
   chainWebpack: (config) => {
+    // Remove the old entry and add the new one
+    config.entry('app').clear().add('./bootstrap/main.ts').end()
+
     config.resolve.alias
-      .set('@config', path.resolve(__dirname, './config'))
-      .set('@graphql', path.resolve(__dirname, './graphql'))
+      .set('~', path.resolve(__dirname, './'))
+      .set('@', path.resolve(__dirname, './'))
       .set(
         '@ant-design/icons/lib/dist$',
-        path.resolve(__dirname, './src/components/Icons/icons.js')
+        path.resolve(__dirname, './components/Icons/icons.js')
       )
 
     config.plugin('fork-ts-checker').tap((args) => {
