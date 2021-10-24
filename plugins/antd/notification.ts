@@ -1,7 +1,7 @@
 import { notification } from 'ant-design-vue'
 import { NotificationOptions } from 'ant-design-vue/types/notification'
 
-import { ThemeConf } from '@config/theme.conf'
+import { ThemeConf } from '@/config/theme.conf'
 
 interface PwaNotification extends NotificationOptions {
   prefixCls?: string

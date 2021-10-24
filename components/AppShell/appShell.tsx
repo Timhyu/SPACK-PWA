@@ -32,9 +32,9 @@ export default class AppShell extends Vue {
             <VHeader />
             <StyledLayout>{this.$slots.default}</StyledLayout>
             <VFooter />
-            <BackTop />
           </Fragment>
         )}
+        <BackTop />
       </div>
     )
   }

@@ -1,5 +1,6 @@
 import { VueConstructor } from 'vue'
 import {
+  BackTop,
   Button,
   Carousel,
   Drawer,
@@ -12,7 +13,15 @@ import {
 import { pwaNotification } from './notification'
 import { pwaMessage } from './message'
 
-const components: any[] = [Button, Carousel, Drawer, Icon, Input, Select]
+const components: any[] = [
+  BackTop,
+  Button,
+  Carousel,
+  Drawer,
+  Icon,
+  Input,
+  Select
+]
 
 const antd = {
   install(Vue: VueConstructor) {
