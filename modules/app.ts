@@ -1,7 +1,7 @@
 import { MutationTree } from 'vuex'
 import { ApolloActionTree } from './interface'
 
-import { GET_STORE_CONFIG } from '@graphql/queries/getStoreConfig'
+import { GET_STORE_CONFIG } from '@/graphql/queries/getStoreConfig'
 
 const state: any = () => ({
   currency: null,

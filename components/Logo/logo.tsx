@@ -1,4 +1,4 @@
-import Vue, { CreateElement, RenderContext, VNode } from 'vue'
+import { CreateElement, RenderContext, VNode } from 'vue'
 
 import { connector } from '@/store'
 import { StyledLogo } from './styled'

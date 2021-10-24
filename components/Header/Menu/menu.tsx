@@ -2,7 +2,7 @@ import Vue, { CreateElement } from 'vue'
 import { Component } from 'vue-property-decorator'
 import { MenuIcon } from 'vue-feather-icons'
 
-import { GET_CATEGOR_TREE } from '@graphql/queries/getCategoryTree'
+import { GET_CATEGOR_TREE } from '@/graphql/queries/getCategoryTree'
 import { Fragment, Icon } from '@pwa/ui'
 
 import Navigation from '@/components/Navigation'

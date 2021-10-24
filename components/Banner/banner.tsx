@@ -2,7 +2,7 @@ import Vue, { CreateElement } from 'vue'
 import { Component, Prop } from 'vue-property-decorator'
 import { namespace } from 'vuex-class'
 
-import { GET_SLIDER } from '@graphql/queries/getSlider'
+import { GET_SLIDER } from '@/graphql/queries/getSlider'
 import { Carousel } from '@pwa/ui'
 
 import {
