@@ -1,40 +1,43 @@
 import { CreateElement, PropType, RenderContext, VNode } from 'vue'
-import { BackTop as AntdBackTop } from 'ant-design-vue'
+import { Form as AntdForm } from 'ant-design-vue'
 
-interface BackTopProps {
-  target?: Function
-  visibilityHeight?: number
+interface FormProps {
+  layout?: string
+  hideRequiredMark?: boolean
 }
 
-const BackTop: any = {
-  name: 'v-backTop',
+const Form: any = {
+  name: 'v-form',
   functional: true,
   props: {
-    target: {
-      type: Function as PropType<BackTopProps['target']>,
-      default: () => window
+    layout: {
+      type: String as PropType<FormProps['layout']>,
+      default: 'horizontal'
     },
-    visibilityHeight: {
-      type: Number as PropType<BackTopProps['visibilityHeight']>,
-      default: 200
+    hideRequiredMark: {
+      type: Boolean as PropType<FormProps['hideRequiredMark']>,
+      default: false
     }
   },
-  render(h: CreateElement, context: RenderContext<BackTopProps>): VNode {
+  render(h: CreateElement, context: RenderContext<FormProps>): VNode {
     const { data = {}, props = {}, listeners = {} } = context
     const attrs = data?.attrs ?? {}
     const style = data?.style ?? {}
 
     return (
-      <AntdBackTop
+      <AntdForm
         {...{ props }}
         {...{ attrs }}
+        // @ts-ignore
         style={style}
         {...{ on: listeners }}
       >
         {context.children}
-      </AntdBackTop>
+      </AntdForm>
     )
   }
 }
 
-export default BackTop
+Form.Item = AntdForm.Item
+
+export default Form
