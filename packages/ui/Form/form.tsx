@@ -28,7 +28,6 @@ const BackTop: any = {
       <AntdBackTop
         {...{ props }}
         {...{ attrs }}
-        // @ts-ignore
         style={style}
         {...{ on: listeners }}
       >

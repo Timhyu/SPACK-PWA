@@ -43,6 +43,7 @@ const Carousel: any = {
       <AntdCarousel
         {...{ props }}
         {...{ attrs }}
+        // @ts-ignore
         style={style}
         {...{ on: listeners }}
       >
