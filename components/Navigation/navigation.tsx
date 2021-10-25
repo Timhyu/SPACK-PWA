@@ -3,7 +3,7 @@ import { Component, Prop } from 'vue-property-decorator'
 
 import { Drawer } from '@pwa/ui'
 
-import { StyledNavigation } from './styled'
+import { StyledNavigation, StyledList } from './styled'
 
 @Component({
   name: 'v-navigation'
@@ -24,7 +24,7 @@ export default class Navigation extends Vue {
       >
         <StyledNavigation>
           {this.categories.length > 0 ? (
-            <ul>
+            <StyledList>
               {this.categories.map((category: any) => {
                 return category.include_in_menu ? (
                   <li key={category.id}>
@@ -34,7 +34,7 @@ export default class Navigation extends Vue {
                   </li>
                 ) : null
               })}
-            </ul>
+            </StyledList>
           ) : (
             <p>There is no any category.</p>
           )}

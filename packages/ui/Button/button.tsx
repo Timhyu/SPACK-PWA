@@ -20,6 +20,7 @@ const Button = Vue.extend({
       <AntdButton
         {...{ props }}
         {...{ attrs }}
+        // @ts-ignore
         style={style}
         {...{ on: listeners }}
       >
