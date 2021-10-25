@@ -12,7 +12,7 @@ module.exports = {
       'collapse-header-bg': '@white',
       'collapse-header-padding': '0.5rem 0',
       'collapse-header-padding-extra': 0,
-      'drawer-body-padding': '0 1rem',
+      'drawer-body-padding': 0,
       'form-item-margin-bottom': '0.5rem',
       'form-font-height': '0.5rem',
       'menu-item-active-bg': '@white',
