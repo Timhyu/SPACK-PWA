@@ -1,11 +1,11 @@
-import Vue, { CreateElement, RenderContext, VNode } from 'vue'
+import { CreateElement, RenderContext, VNode } from 'vue'
 
 import { Container } from '@pwa/ui'
 
 import Banner from '@/components/Banner'
 import Breadcrumbs from '@/components/Breadcrumbs'
 
-const HomePage = Vue.extend({
+const HomePage: any = {
   name: 'v-homepage',
   functional: true,
   render(h: CreateElement, context: RenderContext<any>): VNode {
@@ -18,6 +18,6 @@ const HomePage = Vue.extend({
       </div>
     )
   }
-})
+}
 
 export default HomePage

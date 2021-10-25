@@ -53,6 +53,7 @@ const Drawer: any = {
       <AntdDrawer
         {...{ props }}
         {...{ attrs }}
+        // @ts-ignore
         style={style}
         {...{ on: listeners }}
       >

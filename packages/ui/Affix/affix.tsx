@@ -28,6 +28,7 @@ const Affix = Vue.extend({
       <AntdAffix
         {...{ props }}
         {...{ attrs }}
+        // @ts-ignore
         style={style}
         {...{ on: listeners }}
       >

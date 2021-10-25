@@ -50,6 +50,7 @@ const Select: any = Vue.extend({
       <AntdSelect
         {...{ props }}
         {...{ attrs }}
+        // @ts-ignore
         style={style}
         {...{ on: listeners }}
       >
