@@ -30,5 +30,6 @@ Spack pwa is an MIT-licensed open source project. You can support us in any of t
 
 - [alipay]()
 <img src="./public/img/payment/alipay.jpeg" alt="logo">
+
 - [wecaht]()
 <img src="./public/img/payment/wehat.jpeg" alt="logo">
